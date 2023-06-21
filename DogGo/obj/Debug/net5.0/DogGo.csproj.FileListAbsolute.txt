@@ -441,3 +441,5 @@ C:\Users\nrpus\workspace\csharpbook2\DogGo\DogGo\obj\Debug\net5.0\Razor\Views\Wa
 C:\Users\nrpus\workspace\csharpbook2\DogGo\DogGo\obj\Debug\net5.0\Razor\Views\Walkers\Details.cshtml.g.cs
 C:\Users\nrpus\workspace\csharpbook2\DogGo\DogGo\obj\Debug\net5.0\Razor\Views\Owners\Index.cshtml.g.cs
 C:\Users\nrpus\workspace\csharpbook2\DogGo\DogGo\obj\Debug\net5.0\Razor\Views\Owners\Details.cshtml.g.cs
+C:\Users\nrpus\workspace\csharpbook2\DogGo\DogGo\obj\Debug\net5.0\Razor\Views\Owners\Create.cshtml.g.cs
+C:\Users\nrpus\workspace\csharpbook2\DogGo\DogGo\obj\Debug\net5.0\Razor\Views\Owners\Edit.cshtml.g.cs

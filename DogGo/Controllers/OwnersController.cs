@@ -2,7 +2,10 @@
 using DogGo.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace DogGo.Controllers
 {
@@ -36,36 +39,44 @@ namespace DogGo.Controllers
         // POST: OwnersController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Owner owner)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                _ownerRepo.AddOwner(owner);
+                return RedirectToAction(("Index"));
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                return View(owner);
             }
+            /*A couple things to note here. First, if everthing goes as expected and the new user gets entered into the database, we redirect the user back to / owners / index.Second, if some exception gets thrown, we want to return the same view the user on so they can try again.*/
         }
 
         // GET: OwnersController/Edit/5
         public ActionResult Edit(int id)
-        {
-            return View();
-        }
+            {
+            Owner owner = _ownerRepo.GetOwnerById(id);
+            if (owner == null)
+            {
+                return NotFound();
+            }
+            return View(owner);
+            }
 
-        // POST: OwnersController/Edit/5
+            // POST: OwnersController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Owner owner)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                _ownerRepo.UpdateOwner(owner);
+                return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(owner);
             }
         }
 
